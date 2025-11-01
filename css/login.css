@@ -40,6 +40,10 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-image: url("rm314-adj-04.jpg");
+    background-size: cover;       /* Đảm bảo ảnh che phủ hết, không bị méo */
+    background-position: center;  /* Căn giữa ảnh */
+    background-repeat: no-repeat; /* Không lặp lại ảnh */
 }
 
 .login-container {
