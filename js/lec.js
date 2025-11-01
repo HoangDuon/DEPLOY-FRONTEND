@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // 🚩 FETCH WORKING HOUR
     try {
-        const respone = await fetch(`http://127.0.0.1:8000/lec/working-hours?user_id=${lecId}`, {
+        const respone = await fetch(`https://deploy-fhtg.onrender.com/lec/working-hours?user_id=${lecId}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 announcementsList.innerHTML = `<p style="padding: 15px; text-align: center; color: gray;">Đang tải thông báo...</p>`;
 
                 try {
-                    const response = await fetch("http://127.0.0.1:8000/notify/notifications", {
+                    const response = await fetch("https://deploy-fhtg.onrender.com/notify/notifications", {
                         method: "GET",
                         headers: { "Authorization": `Bearer ${token}` }
                     });
@@ -436,10 +436,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                     }
 
                     const [myClassRes, availableRes] = await Promise.all([
-                        fetch(`http://127.0.0.1:8000/lec/schedule?user_id=${user.id}`, {
+                        fetch(`https://deploy-fhtg.onrender.com/lec/schedule?user_id=${user.id}`, {
                             headers: { "Authorization": `Bearer ${token}` }
                         }),
-                        fetch(`http://127.0.0.1:8000/lec/classes/unassigned`, {
+                        fetch(`https://deploy-fhtg.onrender.com/lec/classes/unassigned`, {
                             headers: { "Authorization": `Bearer ${token}` }
                         })
                     ]);
@@ -529,7 +529,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 };
                 
                 try {
-                    const response = await fetch(`http://127.0.0.1:8000/lec/leave-request/lecturer`, {
+                    const response = await fetch(`https://deploy-fhtg.onrender.com/lec/leave-request/lecturer`, {
                         method: 'POST',
                         headers: {
                             "Authorization": `Bearer ${token}`,
@@ -952,7 +952,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 if (gradesBody) gradesBody.innerHTML = `<tr><td colspan="5" style="text-align:center;">Đang tải danh sách sinh viên...</td></tr>`;
 
                 try {
-                    const response = await fetch(`http://127.0.0.1:8000/lec/classes/students?class_id=${classId}`, {
+                    const response = await fetch(`https://deploy-fhtg.onrender.com/lec/classes/students?class_id=${classId}`, {
                         method: "GET",
                         headers: { "Authorization": `Bearer ${token}` }
                     });
@@ -1194,7 +1194,7 @@ async renderTasksTable() {
                 tasksTableBody.innerHTML = `<tr><td colspan="5" style="text-align:center;">Đang tải danh sách tài liệu và bài tập...</td></tr>`;
 
                 try {
-                    const response = await fetch(`http://127.0.0.1:8000/tc/files/class/${classId}/tasks`, {
+                    const response = await fetch(`https://deploy-fhtg.onrender.com/tc/files/class/${classId}/tasks`, {
                         method: "GET",
                         headers: { "Authorization": `Bearer ${token}` }
                     });
@@ -1379,7 +1379,7 @@ async renderTasksTable() {
                             status: record.status
                             // schedule_date: sessionDate // API chỉ cần status, date được lấy từ server
                         };
-                        return fetch(`http://127.0.0.1:8000/lec/attendance/take?user_id=${lecId}`, {
+                        return fetch(`https://deploy-fhtg.onrender.com/lec/attendance/take?user_id=${lecId}`, {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json",
@@ -1474,7 +1474,7 @@ async renderTasksTable() {
 
                 try {
                     const promises = gradeRecords.map(payload => {
-                        return fetch(`http://127.0.0.1:8000/lec/grades/enter?user_id=${lecId}`, {
+                        return fetch(`https://deploy-fhtg.onrender.com/lec/grades/enter?user_id=${lecId}`, {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json",
@@ -1606,7 +1606,7 @@ async renderTasksTable() {
                     window.LecturerDashboardApp.Calendar.DOM.executeBtn.disabled = true;
 
                     try {
-                        const res = await fetch(`http://127.0.0.1:8000/lec/classes/${classIdToClaim}/register?user_id=${user.id}`, {
+                        const res = await fetch(`https://deploy-fhtg.onrender.com/lec/classes/${classIdToClaim}/register?user_id=${user.id}`, {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json",
@@ -1660,7 +1660,7 @@ async renderTasksTable() {
 
             async fetchTicketData() {
                 try {
-                    const ticketResponse = await fetch(`http://127.0.0.1:8000/auth/tickets?user_id=${lecId}`, {
+                    const ticketResponse = await fetch(`https://deploy-fhtg.onrender.com/auth/tickets?user_id=${lecId}`, {
                         method: "GET",
                         headers: {
                             "Content-Type": "application/json",
@@ -1739,7 +1739,7 @@ async renderTasksTable() {
                 if (submitBtn) submitBtn.disabled = true;
 
                 try {
-                    const response = await fetch("http://127.0.0.1:8000/auth/ticket/submit", {
+                    const response = await fetch("https://deploy-fhtg.onrender.com/auth/ticket/submit", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
@@ -1798,7 +1798,7 @@ async renderTasksTable() {
                     return;
                 }
 
-                const downloadUrl = `http://127.0.0.1:8000/tc/files/download/${savedFilename}`;
+                const downloadUrl = `https://deploy-fhtg.onrender.com/tc/files/download/${savedFilename}`;
                 const token = sessionStorage.getItem("accessToken");
 
                 const modalOverlay = document.getElementById('confirm-modal-overlay');
@@ -1909,7 +1909,7 @@ async deleteTask(classId, taskId, executeBtn, cancelBtn) {
 
                 try {
                     // API endpoint DELETE /tc/files/task/{task_id}/file
-                    const response = await fetch(`http://127.0.0.1:8000/tc/files/task/${taskId}/file`, {
+                    const response = await fetch(`https://deploy-fhtg.onrender.com/tc/files/task/${taskId}/file`, {
                         method: "DELETE",
                         headers: { 
                             // 🌟 KHAI BÁO CỤ THỂ Content-Type theo yêu cầu của Swagger
@@ -2054,7 +2054,7 @@ async deleteTask(classId, taskId, executeBtn, cancelBtn) {
                     executeBtn.disabled = true;
 
                     try {
-                        const response = await fetch(`http://127.0.0.1:8000/tc/files/class/${classId}/tasks`, {
+                        const response = await fetch(`https://deploy-fhtg.onrender.com/tc/files/class/${classId}/tasks`, {
                             method: "POST",
                             headers: { "Authorization": `Bearer ${token}` },
                             body: formData
@@ -2209,7 +2209,7 @@ async deleteTask(classId, taskId, executeBtn, cancelBtn) {
                 }
 
                 try {
-                    const response = await fetch(`http://127.0.0.1:8000/tc/files/task/${taskId}/submissions`, {
+                    const response = await fetch(`https://deploy-fhtg.onrender.com/tc/files/task/${taskId}/submissions`, {
                         method: "GET",
                         headers: { "Authorization": `Bearer ${token}` }
                     });
@@ -2417,7 +2417,7 @@ async showGradeModal(submissionId, studentName, taskId, currentGrade, currentFee
                     // Tùy theo logic API. Tôi sẽ giả định API chấp nhận null/empty string nếu không có file thực sự.
 
                     try {
-                        const response = await fetch(`http://127.0.0.1:8000/tc/files/submission/${submissionId}/grade`, {
+                        const response = await fetch(`https://deploy-fhtg.onrender.com/tc/files/submission/${submissionId}/grade`, {
                             method: "PUT", // Giữ nguyên PUT đã sửa
                             headers: {
                                 // KHÔNG CẦN Content-Type header khi dùng FormData, browser sẽ tự thêm boundary

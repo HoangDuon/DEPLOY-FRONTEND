@@ -195,7 +195,7 @@ parseStudentTicket(description) {
         async loadDashboardSummary() {
             try {
                  // API GET /manager/dashboard 
-                 const response = await fetch(`http://127.0.0.1:8000/manager/dashboard`, {
+                 const response = await fetch(`https://deploy-fhtg.onrender.com/manager/dashboard`, {
                      method: "GET",
                      headers: {
                          "Content-Type": "application/json",
@@ -434,7 +434,7 @@ parseStudentTicket(description) {
                  }
                 
                 try {
-                    const response = await fetch(`http://127.0.0.1:8000/manager/users`, {
+                    const response = await fetch(`https://deploy-fhtg.onrender.com/manager/users`, {
                         method: "GET",
                         headers: {
                             "Content-Type": "application/json",
@@ -477,7 +477,7 @@ async fetchPendingStudentRequests() {
                 
                 try {
                     // Endpoint API GET /manager/tickets/pending-student-requests
-                    const response = await fetch(`http://127.0.0.1:8000/manager/tickets/pending-student-requests`, {
+                    const response = await fetch(`https://deploy-fhtg.onrender.com/manager/tickets/pending-student-requests`, {
                         method: "GET",
                         headers: {
                             "Content-Type": "application/json",
@@ -622,7 +622,7 @@ async executeBatchApproval() {
 
                 try {
                     // MỚI: Gọi API một lần duy nhất
-                    const apiUrl = `http://127.0.0.1:8000/manager/tickets/approve`;
+                    const apiUrl = `https://deploy-fhtg.onrender.com/manager/tickets/approve`;
                     const requestBody = {
                         ticket_ids: ticketIdsAsInt,
                         activate_student: true
@@ -805,7 +805,7 @@ async approveUser(ticketId) {
 
                 try {
                     // MỚI: API và body
-                    const apiUrl = `http://127.0.0.1:8000/manager/tickets/approve`;
+                    const apiUrl = `https://deploy-fhtg.onrender.com/manager/tickets/approve`;
                     const requestBody = {
                         ticket_ids: [parseInt(ticketId)], // Gửi ID trong một mảng
                         activate_student: true           // Kích hoạt học sinh
@@ -843,7 +843,7 @@ async rejectUser(ticketId) {
 
                 try {
                     // 1. Sửa URL endpoint theo API trong ảnh
-                    const apiUrl = `http://127.0.0.1:8000/manager/tickets/reject`;
+                    const apiUrl = `https://deploy-fhtg.onrender.com/manager/tickets/reject`;
                     
                     // 2. Chuẩn bị dữ liệu body theo yêu cầu của API (ảnh)
                     // API yêu cầu một object với key "ticket_ids" là một mảng (array)
@@ -917,7 +917,7 @@ async rejectUser(ticketId) {
                 
                 try {
                     // API POST /manager/users/{user_id}/deactive?mode={activate/deactivate}
-                    const response = await fetch(`http://127.0.0.1:8000/manager/users/${userId}/status?mode=${mode}`, {
+                    const response = await fetch(`https://deploy-fhtg.onrender.com/manager/users/${userId}/status?mode=${mode}`, {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
@@ -1017,7 +1017,7 @@ async rejectUser(ticketId) {
                         };
                         
 
-                        const response = await fetch(`http://127.0.0.1:8000/manager/users`, {
+                        const response = await fetch(`https://deploy-fhtg.onrender.com/manager/users`, {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json",
@@ -1074,7 +1074,7 @@ async rejectUser(ticketId) {
                             requestBody.password = newPassword;
                         }
 
-                        const response = await fetch(`http://127.0.0.1:8000/manager/users/${userId}`, {
+                        const response = await fetch(`https://deploy-fhtg.onrender.com/manager/users/${userId}`, {
                             method: "PUT",
                             headers: {
                                 "Content-Type": "application/json",
@@ -1134,7 +1134,7 @@ async rejectUser(ticketId) {
 
                 try {
                      // API GET /tc/get_tickets
-                     const response = await fetch(`http://127.0.0.1:8000/tc/tickets/all`, {
+                     const response = await fetch(`https://deploy-fhtg.onrender.com/tc/tickets/all`, {
                          method: "GET",
                          headers: { "Authorization": `Bearer ${token}` }
                      });
@@ -1290,7 +1290,7 @@ async rejectUser(ticketId) {
 
                 try {
                     // API POST /tc/resovle_tickets
-                    const apiUrl = `http://127.0.0.1:8000/tc/tickets/${ticketId}/status`;
+                    const apiUrl = `https://deploy-fhtg.onrender.com/tc/tickets/${ticketId}/status`;
                     
                     const response = await fetch(apiUrl, {
                         method: "PUT",
@@ -1347,7 +1347,7 @@ async rejectUser(ticketId) {
                  
                  try {
                      // API GET /notify/notifications 
-                     const response = await fetch(`http://127.0.0.1:8000/notify/notifications`, {
+                     const response = await fetch(`https://deploy-fhtg.onrender.com/notify/notifications`, {
                          method: "GET",
                          headers: { "Authorization": `Bearer ${token}` }
                      });
@@ -1433,7 +1433,7 @@ async rejectUser(ticketId) {
                     };
                     
                     console.log("Gửi payload thông báo:", payload);
-                    const response = await fetch(`http://127.0.0.1:8000/tc/notifications/create?user_id=${user.id}`, {
+                    const response = await fetch(`https://deploy-fhtg.onrender.com/tc/notifications/create?user_id=${user.id}`, {
                         method: "POST",
                         headers: { 
                             "Content-Type": "application/json", // RẤT QUAN TRỌNG
@@ -1513,7 +1513,7 @@ async rejectUser(ticketId) {
             async fetchReportData(managerId, days) {
                  try {
                      // API GET /manager/reports/overview?manager_id={manager_id}&days={days}
-                     const url = `http://127.0.0.1:8000/manager/reports/overview?manager_id=${managerId}&days=${days}`;
+                     const url = `https://deploy-fhtg.onrender.com/manager/reports/overview?manager_id=${managerId}&days=${days}`;
                      
                      const response = await fetch(url, {
                          method: "GET",

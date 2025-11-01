@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }  
     // 🚩 FETCH DASHBOARD DATA
     try {
-        const response = await fetch(`http://127.0.0.1:8000/student/dashboard/${user.id}`, {
+        const response = await fetch(`https://deploy-fhtg.onrender.com/student/dashboard/${user.id}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -299,7 +299,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                 try {
                     // Sửa endpoint để dùng savedFilename theo API
-                    const downloadUrl = `http://127.0.0.1:8000/tc/files/download/${savedFilename}`;
+                    const downloadUrl = `https://deploy-fhtg.onrender.com/tc/files/download/${savedFilename}`;
 
                     const response = await fetch(downloadUrl, {
                         method: "GET",
@@ -380,7 +380,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 announcementsList.innerHTML = `<p style="padding: 15px; text-align: center; color: gray;">Đang tải thông báo...</p>`;
 
                 try {
-                    const response = await fetch("http://127.0.0.1:8000/notify/notifications", {
+                    const response = await fetch("https://deploy-fhtg.onrender.com/notify/notifications", {
                         method: "GET",
                         headers: {
                             "Content-Type": "application/json",
@@ -663,7 +663,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                  try {
                      // Dùng API GET /auth/tickets?user_id={user.id}
-                     const response = await fetch(`http://127.0.0.1:8000/auth/tickets?user_id=${user.id}`, {
+                     const response = await fetch(`https://deploy-fhtg.onrender.com/auth/tickets?user_id=${user.id}`, {
                          method: "GET",
                          headers: { "Authorization": `Bearer ${token}` }
                      });
@@ -763,7 +763,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 };
                 
                 try {
-                    const response = await fetch("http://127.0.0.1:8000/auth/ticket/submit", {
+                    const response = await fetch("https://deploy-fhtg.onrender.com/auth/ticket/submit", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
@@ -905,7 +905,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 // }
                 
                 try {
-                    const response = await fetch(`http://127.0.0.1:8000/tc/files/task/${assignmentId}/submit`, {
+                    const response = await fetch(`https://deploy-fhtg.onrender.com/tc/files/task/${assignmentId}/submit`, {
                         method: "POST",
                         headers: {
                             "Authorization": `Bearer ${token}`
@@ -954,7 +954,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             async fetchStudentClasses(){
                 try{
-                    const response = await fetch(`http://127.0.0.1:8000/student/class?user_id=${user.id}`, {
+                    const response = await fetch(`https://deploy-fhtg.onrender.com/student/class?user_id=${user.id}`, {
                         method: "GET",
                         headers: {
                             "Content-Type": "application/json",
@@ -1084,7 +1084,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 
                 let assignments = [];
                 try {
-                    const response = await fetch(`http://127.0.0.1:8000/tc/files/class/${classId}/tasks`, {
+                    const response = await fetch(`https://deploy-fhtg.onrender.com/tc/files/class/${classId}/tasks`, {
                         method: "GET",
                         headers: { "Authorization": `Bearer ${token}` }
                     });
@@ -1184,7 +1184,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             async renderGrades(classId) {
                 try {
-                    const response = await fetch(`http://127.0.0.1:8000/student/class/grade?class_id=${classId}&user_id=${user.id}`, {
+                    const response = await fetch(`https://deploy-fhtg.onrender.com/student/class/grade?class_id=${classId}&user_id=${user.id}`, {
                         method: "GET",
                         headers: {
                             "Content-Type": "application/json",
@@ -1250,7 +1250,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     this.DOM.attendanceBody.innerHTML = `<tr><td colspan="3" style="text-align:center; color:gray;">Đang tải dữ liệu điểm danh...</td></tr>`;
 
                     const response = await fetch(
-                        `http://127.0.0.1:8000/student/class/attendance?class_id=${classId}&user_id=${user.id}`,
+                        `https://deploy-fhtg.onrender.com/student/class/attendance?class_id=${classId}&user_id=${user.id}`,
                         {
                             method: "GET",
                             headers: {
@@ -1361,7 +1361,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                  let assignmentDetail = null;
                  
                  try {
-                     const response = await fetch(`http://127.0.0.1:8000/tc/files/class/${classId}/tasks`, {
+                     const response = await fetch(`https://deploy-fhtg.onrender.com/tc/files/class/${classId}/tasks`, {
                         method: "GET",
                         headers: { "Authorization": `Bearer ${token}` }
                     });

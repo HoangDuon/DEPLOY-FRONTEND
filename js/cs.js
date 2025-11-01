@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
     
     try {
-        const response = await fetch("http://127.0.0.1:8000/cs/performance/overview", {
+        const response = await fetch("https://deploy-fhtg.onrender.com/cs/performance/overview", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         announcementsList.innerHTML = `<p style="padding: 15px; text-align: center; color: gray;">Đang tải thông báo...</p>`;
 
         try {
-            const response = await fetch("http://127.0.0.1:8000/notify/notifications", {
+            const response = await fetch("https://deploy-fhtg.onrender.com/notify/notifications", {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         tableBody.innerHTML = `<tr><td colspan="5" style="text-align:center; font-style: italic;">Đang tải danh sách học viên...</td></tr>`;
 
         try {
-            const response = await fetch("http://127.0.0.1:8000/cs/students/list", {
+            const response = await fetch("https://deploy-fhtg.onrender.com/cs/students/list", {
                 method: "GET",
                 headers: { "Content-Type": "application/json" }
             });
@@ -309,7 +309,7 @@ async function loadTicketData() {
     tableBody.innerHTML = `<tr><td colspan="6" style="text-align:center; font-style: italic;">Đang tải danh sách Ticket...</td></tr>`;
 
     try {
-        const apiUrl = `http://127.0.0.1:8000/auth/tickets?user_id=${csId}`;
+        const apiUrl = `https://deploy-fhtg.onrender.com/auth/tickets?user_id=${csId}`;
         
         const response = await fetch(apiUrl, {
             method: "GET",
@@ -373,7 +373,7 @@ async function loadFeedbackHistory() {
     tableBody.innerHTML = `<tr><td colspan="6" style="text-align:center; font-style: italic;">Đang tải lịch sử phản hồi...</td></tr>`;
 
     try {
-        const response = await fetch("http://127.0.0.1:8000/cs/feedback/all", {
+        const response = await fetch("https://deploy-fhtg.onrender.com/cs/feedback/all", {
             method: "GET",
             headers: { "Content-Type": "application/json" }
         });
@@ -641,8 +641,8 @@ async function loadFeedbackHistory() {
         try {
             // Lấy dữ liệu Performance và Attendance song song
             const [performanceRes, attendanceRes] = await Promise.all([
-                fetch(`http://127.0.0.1:8000/cs/performance?student_id=${studentId}`, { headers: { "Content-Type": "application/json" } }),
-                fetch(`http://127.0.0.1:8000/cs/attendance?student_id=${studentId}`, { headers: { "Content-Type": "application/json" } })
+                fetch(`https://deploy-fhtg.onrender.com/cs/performance?student_id=${studentId}`, { headers: { "Content-Type": "application/json" } }),
+                fetch(`https://deploy-fhtg.onrender.com/cs/attendance?student_id=${studentId}`, { headers: { "Content-Type": "application/json" } })
             ]);
 
             // Dữ liệu thô
@@ -852,7 +852,7 @@ async function loadFeedbackHistory() {
             };
             
             try {
-                const response = await fetch("http://127.0.0.1:8000/auth/ticket/submit", {
+                const response = await fetch("https://deploy-fhtg.onrender.com/auth/ticket/submit", {
                     method: "POST",
                     headers: { 
                         "Content-Type": "application/json",
@@ -942,7 +942,7 @@ async function loadFeedbackHistory() {
             };
             
             try {
-                const response = await fetch("http://127.0.0.1:8000/cs/request-account", {
+                const response = await fetch("https://deploy-fhtg.onrender.com/cs/request-account", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

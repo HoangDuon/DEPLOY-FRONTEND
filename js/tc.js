@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
         async loadOverviewData() {
             try {
                 const token = Helpers.getToken();
-                const response = await fetch(`http://127.0.0.1:8000/tc/performance/overview`, {
+                const response = await fetch(`https://deploy-fhtg.onrender.com/tc/performance/overview`, {
                     method: "GET",
                     headers: { "Authorization": `Bearer ${token}` }
                 });
@@ -312,7 +312,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (!token) throw new Error("Missing access token.");
 
                     // API GET /notify/notifications
-                    const response = await fetch(`http://127.0.0.1:8000/notify/notifications`, {
+                    const response = await fetch(`https://deploy-fhtg.onrender.com/notify/notifications`, {
                         method: "GET",
                         headers: { "Authorization": `Bearer ${token}` }
                     });
@@ -391,7 +391,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (!token) throw new Error("Missing access token.");
 
                     // API POST /tc/notifications/create
-                    const apiUrl = `http://127.0.0.1:8000/tc/notifications/create?current_user_id=${Helpers.TC_ID}`;
+                    const apiUrl = `https://deploy-fhtg.onrender.com/tc/notifications/create?current_user_id=${Helpers.TC_ID}`;
 
                     const response = await fetch(apiUrl, {
                         method: "POST",
@@ -491,7 +491,7 @@ document.addEventListener('DOMContentLoaded', () => {
                      if (!token) throw new Error("Missing access token.");
 
                      // API GET /tc/leave-requests
-                     const response = await fetch(`http://127.0.0.1:8000/tc/leave-requests`, {
+                     const response = await fetch(`https://deploy-fhtg.onrender.com/tc/leave-requests`, {
                          method: "GET",
                          headers: { "Authorization": `Bearer ${token}` }
                      });
@@ -623,7 +623,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                      if (status === 'approved') {
                          // DUYỆT: Gọi API /tc/tickets/{ticket_id}/approve-leave (POST)
-                         url = `http://127.0.0.1:8000/tc/${requestId}/approve-leave`;
+                         url = `https://deploy-fhtg.onrender.com/tc/${requestId}/approve-leave`;
                          method = "POST";
                          response = await fetch(url, {
                              method: method,
@@ -632,7 +632,7 @@ document.addEventListener('DOMContentLoaded', () => {
                          
                      } else if (status === 'rejected') {
                         // TỪ CHỐI: Gọi API /tc/tickets/{ticket_id}/status (PUT)
-                        url = `http://127.0.0.1:8000/tc/${requestId}/reject-leave`;
+                        url = `https://deploy-fhtg.onrender.com/tc/${requestId}/reject-leave`;
                         method = "POST";
                         response = await fetch(url, {
                             method: method,
@@ -677,7 +677,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (!token) throw new Error("Missing access token.");
 
                     // API GET /tc/teachers/all
-                    const response = await fetch(`http://127.0.0.1:8000/tc/teachers/all`, {
+                    const response = await fetch(`https://deploy-fhtg.onrender.com/tc/teachers/all`, {
                         method: "GET",
                         headers: { "Authorization": `Bearer ${token}` }
                     });
@@ -817,7 +817,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                         // GỌI API CHI TIẾT LỚP (Get Single Class) để lấy thông tin Giảng viên và Lịch học
                         // API GET /tc/classes/{class_id}/get_infor_class
-                        const response = await fetch(`http://127.0.0.1:8000/tc/classes/${classId}/get_infor_class`, {
+                        const response = await fetch(`https://deploy-fhtg.onrender.com/tc/classes/${classId}/get_infor_class`, {
                             method: "GET",
                             headers: { "Authorization": `Bearer ${token}` }
                         });
@@ -963,7 +963,7 @@ async handleAttendanceSubmit(e) {
                     if (!token) throw new Error("Missing access token.");
 
                     // API POST /tc/attendance/lecturer
-                    const response = await fetch(`http://127.0.0.1:8000/tc/attendance/lecturer`, {
+                    const response = await fetch(`https://deploy-fhtg.onrender.com/tc/attendance/lecturer`, {
                         method: "POST",
                         headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
                         body: JSON.stringify(requestBody)
@@ -1054,7 +1054,7 @@ async handleAttendanceSubmit(e) {
                     if (!token) throw new Error("Missing access token.");
 
                     // API GET /tc/teachers/{user_id}/performance
-                    const response = await fetch(`http://127.0.0.1:8000/tc/teachers/${teacherUserId}/performance`, {
+                    const response = await fetch(`https://deploy-fhtg.onrender.com/tc/teachers/${teacherUserId}/performance`, {
                         method: "GET",
                         headers: { "Authorization": `Bearer ${token}` }
                     });
@@ -1228,7 +1228,7 @@ async handleAttendanceSubmit(e) {
                     if (!token) throw new Error("Missing access token.");
 
                     // API GET /tc/requests/class-assignments
-                    const response = await fetch(`http://127.0.0.1:8000/tc/requests/class-assignments`, {
+                    const response = await fetch(`https://deploy-fhtg.onrender.com/tc/requests/class-assignments`, {
                         method: "GET",
                         headers: { "Authorization": `Bearer ${token}` }
                     });
@@ -1305,7 +1305,7 @@ async handleAttendanceSubmit(e) {
                     const token = Helpers.getToken();
                     if (!token) throw new Error("Missing access token.");
 
-                    const response = await fetch(`http://127.0.0.1:8000/tc/requests/class-assignments/${ticketId}/approve`, {
+                    const response = await fetch(`https://deploy-fhtg.onrender.com/tc/requests/class-assignments/${ticketId}/approve`, {
                         method: "POST",
                         headers: { "Authorization": `Bearer ${token}`, "Content-Type": "application/json" }
                     });
@@ -1350,7 +1350,7 @@ async handleAttendanceSubmit(e) {
                     const token = Helpers.getToken();
                     if (!token) throw new Error("Missing access token.");
 
-                    const response = await fetch(`http://127.0.0.1:8000/tc/requests/class-assignments/${ticketId}/reject`, {
+                    const response = await fetch(`https://deploy-fhtg.onrender.com/tc/requests/class-assignments/${ticketId}/reject`, {
                         method: "POST",
                         headers: {
                             "Authorization": `Bearer ${token}`,
@@ -1383,7 +1383,7 @@ async handleAttendanceSubmit(e) {
                     const token = Helpers.getToken();
                     if (!token) throw new Error("Missing access token.");
 
-                    const response = await fetch(`http://127.0.0.1:8000/tc/classes/all`, {
+                    const response = await fetch(`https://deploy-fhtg.onrender.com/tc/classes/all`, {
                         method: "GET",
                         headers: { "Authorization": `Bearer ${token}` }
                     });
@@ -1606,7 +1606,7 @@ async handleAttendanceSubmit(e) {
                         const classId = this.currentClassId;
                         const currentUserId = Helpers.TC_ID;
 
-                        const url = `http://127.0.0.1:8000/tc/classes/${classId}/update?current_user_id=${currentUserId}`;
+                        const url = `https://deploy-fhtg.onrender.com/tc/classes/${classId}/update?current_user_id=${currentUserId}`;
 
                         const response = await fetch(url, {
                             method: "PUT",
@@ -1645,7 +1645,7 @@ async handleAttendanceSubmit(e) {
                             current_user_id: Helpers.TC_ID
                         });
 
-                        const url = `http://127.0.0.1:8000/tc/classes/create?${currentUserIdParam.toString()}`;
+                        const url = `https://deploy-fhtg.onrender.com/tc/classes/create?${currentUserIdParam.toString()}`;
 
                         const response = await fetch(url, {
                             method: "POST",
@@ -1715,7 +1715,7 @@ async handleAttendanceSubmit(e) {
                     if (!token) throw new Error("Missing access token.");
 
                     // GỌI API GET /tc/classes/{class_id}/students-not-in
-                    const response = await fetch(`http://127.0.0.1:8000/tc/classes/${classId}/students-not-in`, {
+                    const response = await fetch(`https://deploy-fhtg.onrender.com/tc/classes/${classId}/students-not-in`, {
                         method: "GET",
                         headers: { "Authorization": `Bearer ${token}` }
                     });
@@ -1806,7 +1806,7 @@ async handleAttendanceSubmit(e) {
                         // Cấu trúc request body khớp với yêu cầu của API: { "student_id": ID }
                         const requestBody = { student_id: studentId };
 
-                        const response = await fetch(`http://127.0.0.1:8000/tc/classes/${classId}/students`, {
+                        const response = await fetch(`https://deploy-fhtg.onrender.com/tc/classes/${classId}/students`, {
                             method: "POST",
                             headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
                             body: JSON.stringify(requestBody)
@@ -1864,7 +1864,7 @@ async handleAttendanceSubmit(e) {
                     const token = Helpers.getToken();
                     if (!token) throw new Error("Missing access token.");
 
-                    const response = await fetch(`http://127.0.0.1:8000/tc/tickets/all`, {
+                    const response = await fetch(`https://deploy-fhtg.onrender.com/tc/tickets/all`, {
                         method: "GET",
                         headers: { "Authorization": `Bearer ${token}` }
                     });
@@ -1909,7 +1909,7 @@ async handleAttendanceSubmit(e) {
                     if (!token) throw new Error("Missing access token.");
 
                     // API để cập nhật trạng thái Ticket thành resolved
-                    const response = await fetch(`http://127.0.0.1:8000/tc/tickets/${ticketId}/status`, {
+                    const response = await fetch(`https://deploy-fhtg.onrender.com/tc/tickets/${ticketId}/status`, {
                         method: "PUT",
                         headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
                         body: JSON.stringify({ status: "resolved" })
@@ -2005,7 +2005,7 @@ async handleAttendanceSubmit(e) {
                     const token = Helpers.getToken();
                     if (!token) throw new Error("Missing access token.");
 
-                    const response = await fetch(`http://127.0.0.1:8000/auth/ticket/submit`, {
+                    const response = await fetch(`https://deploy-fhtg.onrender.com/auth/ticket/submit`, {
                         method: "POST",
                         headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
                         body: JSON.stringify(requestBody)

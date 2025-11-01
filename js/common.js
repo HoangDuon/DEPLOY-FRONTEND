@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 try {
                     // Gọi API GET /auth/user/{user_id}
-                    const response = await fetch(`http://127.0.0.1:8000/auth/user/${userId}`, {
+                    const response = await fetch(`https://deploy-fhtg.onrender.com/auth/user/${userId}`, {
                         method: "GET",
                         headers: { "Authorization": `Bearer ${token}` }
                     });
